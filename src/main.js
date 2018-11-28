@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
+import bus from '@/model/bus'
 Vue.prototype.$http = axios
 Vue.config.productionTip = false
 
@@ -11,6 +12,9 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  data:{
+    bus:bus
+  },
   components: { App },
   template: '<App/>'
 })

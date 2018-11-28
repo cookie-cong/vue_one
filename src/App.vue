@@ -36,6 +36,7 @@ export default {
     }
   },
   methods:{
+    
     go(type){//当点击的时候，跳转到相应的页面
       this.$router.push({path:"/list/"+type})//可以利用Vue实例中的$router.push方法
     },

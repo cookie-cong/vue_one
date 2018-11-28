@@ -8,6 +8,7 @@ import list from '@/components/list'
 
 import infor from '@/components/infor'
 import login from '@/components/login'
+import detail from '@/components/detail'
 
 
 Vue.use(Router)
@@ -51,6 +52,12 @@ var router =  new Router({
       meta:{
         login:true
       }
+    },
+    {
+      path:"/detail/:type/:id",
+      name:"detail",
+      component:detail,
+      props:true
     },
     {
       path:"/list/:type",

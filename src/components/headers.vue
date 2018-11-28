@@ -9,6 +9,9 @@ export default {
       }
     },
     created(){
+        this.$root.bus.$on("bsf",(data)=>{
+          this.title=data;
+        })
         this.changeTitle("/one")
         this.$router.beforeEach((to,from,next)=>{//这里也可以用afterEach,但是最后不用写next
         this.changeTitle(to.path)

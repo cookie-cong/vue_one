@@ -1,11 +1,9 @@
 <template>
 <div>
     <ul>
-        <li v-for="item in list">
-            <!-- <span v-for="(v,k,idx) in item">{{k}}:{{v}}</span> -->
-            <span v-if="type==='list'">{{item.name}}</span>
-            <span v-else>{{item.brand}}</span>
-            <router-link :to="'/detail/'+type+'/'+item.id">详情</router-link>
+        <li v-for="(v,k,index) in obj">
+            {{k}}:{{v}}
+          
         </li>
     </ul>
 
@@ -13,10 +11,10 @@
 </template>
 <script>
     export default{
-        props:["type"],
+        props:["type","id"],
         data(){
             return{
-                list:[]
+                obj:{}
                 
             }
         },
@@ -55,8 +53,13 @@
         },
         methods:{
             getData(){
-                this.$http.get("http://localhost:3000/"+this.type).then((res)=>{
-                    this.list=res.data
+                this.$http.get("http://localhost:3000/"+this.type+"/"+this.id).then((res)=>{
+                    this.obj=res.data
+                    if(this.type==="list"){
+                        this.$root.bus.$emit("bsf",res.data.name)
+                    }else{
+                        this.$root.bus.$emit("bsf",res.data.brand)
+                    }
                 })
             }
         }
