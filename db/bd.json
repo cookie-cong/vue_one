@@ -1,0 +1,24 @@
+{
+    "list":[
+        {
+            "id":1,
+            "name":"czy"
+        },
+        {
+            "id":2,
+            "name":"zjf"
+        }
+    ],
+    "comp":[
+        {
+            "id":3,
+            "brand":"dell",
+            "price":"6000"
+        },
+        {
+            "id":4,
+            "brand":"mac",
+            "price":"10000"
+        }
+    ]
+}
