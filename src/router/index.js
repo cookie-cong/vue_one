@@ -57,7 +57,7 @@ var router =  new Router({
       name:"list",
       component:list,
       props:true,
-      meta:{
+      meta:{//只有先登录验证才能进行下一步
         login:true
       }
     }
@@ -67,8 +67,8 @@ var router =  new Router({
 })
 router.beforeEach((to,from,next)=>{
   // console.log(sessionStorage.getItem("user"))
-  if(to.meta && to.meta.login){
-    if(sessionStorage.getItem("user")){
+  if(to.meta && to.meta.login){//判断是否有to.meta并且是否有登录
+    if(sessionStorage.getItem("user")){//sessionStorage里如果有名字了，就没有登录的环节了
         next();
         
     }else{
